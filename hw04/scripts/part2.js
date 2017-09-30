@@ -1,3 +1,4 @@
+//Hannah Chauvet's Homework04
 let language = 'English'
 let languageCode = 'en'
 let jsonData
@@ -19,6 +20,17 @@ const setLanguage = (code) => {
     document.querySelector("pre").innerHTML = ''
 }
 
+// 1.) The getData function sets its local constant variable 'term' to the
+// string which is the value of the input element whose id is 'term' and then
+// concatenates that to a baseURL for the Twitter account for MMART 168.
+// Then the languageCode is added to the baseURL to form the twitterURL and
+// that is used to fetch all the tweets that match the query.
+// The resulting response is formatted, changed into a string and that string
+// is placed in the innnerHTML in the <pre> element of the document.
+
+// 2.) jsonData.statuses[0]
+// 3.) jsonData.statuses[4].text
+// 4.) jsonData.statuses[1].user.name
 
 const getData = () => {
     const term = document.getElementById('term').value
