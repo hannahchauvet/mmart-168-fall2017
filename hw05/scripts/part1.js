@@ -36,19 +36,28 @@ const setLanguage = (code) => {
 
 //This first attempt works now that I know where to use it
 const reverseText1 = (text) => {
-  let newStr = ''
+  let newStr = '' //Declaring new string variable
   for (let i = text.length-1; i >= 0;i--)
+  // For loop iterates backwards through string parameter and adds
+  // each character to the new string variable
   {
     newStr = newStr + text[i]
   }
+  // New string variable is returned from the function
   return newStr;
 }
 
 //Second attempt also works fine when used in the proper place
 const reverseText2 = (str) => {
+  // New string variable is declared
     let txt = ''
     txt = str
+  // Parameter is assigned to new string and then three function
+  // are chained to split it into an array of characters, reverse
+  // the array and then join the array back into a sptring
     return txt.split('').reverse().join('')
+  // the string resulting from the chaining of the three functions is
+  // returned.
 }
 
 
@@ -63,6 +72,21 @@ const reverseText2 = (str) => {
 // HINT: Strings have a useful function called indexOf that you may
 // find useful: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
 // HINT: You already have a reverseText function laying around...
+
+const reverseTweetifNohash = (tweet) => {
+  // New string variable is declared
+    let txt = ''
+  // Parameter tweet is assigned to new string
+    txt = tweet
+  // if the string passed in contains a hashtag (#)
+  // then return the original string
+  if (txt.indexOf('#') != -1) {
+    return (txt)
+  } // else reverse the string and return it
+  else {
+      return txt.split('').reverse().join('')
+    }
+}
 
 // ---------------------- DELIVERABLE -----------------------------------
 // When somebody searches for a keyword, tweets with hashtags will
@@ -93,11 +117,19 @@ const getData = () => {
 
             json.statuses.forEach((status) => {
                 div = document.createElement('div')
-                div.className = 'tweet'
+                // Assigns the tweet to String
+                let str = status.text
+                // if the tweet has a hashtag (#), then div's className is
+                // 'tweets and it's background-color is white
+                if (str.indexOf('#') != -1) {
+                div.className = 'tweet'}
+                // else the div's className is 'red-tweet' and it's
+                // background color is red
+                else { div.className = 'red-tweet'}
 
             // When Sarah showed me where to call function then both
             // the attempts worked
-                textNode = document.createTextNode(reverseText2(status.text))
+                textNode = document.createTextNode(reverseTweetifNohash(status.text))
 
                 div.appendChild(textNode)
                 document.getElementById('results').appendChild(div)

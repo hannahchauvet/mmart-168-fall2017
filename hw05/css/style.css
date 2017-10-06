@@ -45,6 +45,13 @@ pre {
     border-bottom: solid 1px #DDD;
     padding: 20px;
 }
+
+.red-tweet {
+    border-bottom: solid 1px #DDD;
+    padding: 20px;
+    background-color: #ff0000;
+}
+
 .tweet img {
     height: 200px;
 }
