@@ -39,30 +39,31 @@ const getData = () => {
         .then(function(json) {
             let div
             let textNode
-
             // output statuses:
             console.log(json.statuses)
-
             // clear out existing tweets:
             clearData()
-
             // ---------------------- TASK 1 -----------------------------------
             // 1. Create a new variable called tweetsWithHashtags
-            // 2. Call the 'filter' function on the json.statuses array. The filter function returns an array, so you can assign it `tweetsWithHashtags`. Read more about filter here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-            // 3. Write an anonymous function that checks each tweet's text, and filters out tweets that do NOT have hashtags.
+            // 2. Call the 'filter' function on the json.statuses array. The filter function returns an array,
+            //    so you can assign it to `tweetsWithHashtags`. Read more about filters here:
+            //    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+            // 3. Write an anonymous function that checks each tweet's text, and filters out tweets that do NOT have
+            //    hashtags.
             // 4. Update the forEach function so that it runs on the new tweetsWithHashtags array
 
             // ---------------------- DELIVERABLE -----------------------------------
             // When somebody searches for a tweet, they will only see tweets that contain hashtags.
 
+            let tweetsWithHashtags = json.statuses.filter(tweet => tweet.text.indexOf('#') != -1)
 
-            json.statuses.forEach((status) => {
+            //json.statuses.forEach((status) => {
+            tweetsWithHashtags.forEach((status) => {
                 div = document.createElement('div')
                 div.className = 'tweet'
                 textNode = document.createTextNode(status.text)
                 div.appendChild(textNode)
                 document.getElementById('results').appendChild(div)
             })
-
-        })
-}
+      })
+  }
