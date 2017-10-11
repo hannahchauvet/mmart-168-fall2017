@@ -55,6 +55,21 @@ pre {
   fill: #7f8c8d;
 }
 
+/* CSS code to animate the like star when it is clicked */
+.like {
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.like:active {
+  -webkit-transform: scale(2.7);
+	-moz-transform: scale(2.7);
+	-o-transform: scale(2.7);
+	transform: scale(2.7);
+}
+
 .active {
   fill: #f1c40f;
 }
@@ -63,7 +78,6 @@ pre {
   display: flex;
   justify-content: flex-end;
 }
-
 
 
 /*************************/
