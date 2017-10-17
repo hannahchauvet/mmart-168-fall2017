@@ -1,4 +1,4 @@
-html {
+body {
   color: #555;;
   background-color: #e74c3c;
   font-family: sans-serif;
@@ -23,5 +23,5 @@ h1 {
 
 li {
   list-style: none;
-  
+
 }

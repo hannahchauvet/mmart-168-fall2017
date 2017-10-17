@@ -7,6 +7,12 @@
 // appends an "li" element, with the string inside, to the un-ordered
 // list ("ul" tag):
 
+const addString = (str) =>{
+  const node = document.createElement("li");
+  const textnode = document.createTextNode(str);
+  node.appendChild(textnode);
+  document.getElementById("output").appendChild(node);
+}
 
 
 //------------------------------------------------------------------
@@ -19,3 +25,24 @@
 // 2. If the number is divisible by 5, append "Buzz" to the unordered list
 // 3. If the number is divisible by 3 AND 5, append "FizzBuzz" to the unordered list.
 // 4. Bonus points: Include both the number *and* the word you've appended to the list
+
+const fizzBuzz = () =>{
+  let num = 0
+  for( i = 1; i <= 100; i++){
+    if ((i % 3 === 0) && (i % 5 === 0)) {
+      num++
+      addString(num + ".) FizzBuzz " + i)
+    }
+    else if (i % 3 === 0){
+      num++
+      addString(num + ".) Fizz " + i)
+    }
+    else if (i % 5 === 0){
+      num++
+      addString(num + ".) Buzz " + i)
+    }
+  }
+  let totalStr =''
+  totalStr = 'The total number of entries is ' + num.toString()
+  addString(totalStr)
+}
